@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="col-md-10 offset-md-1 mt-5">
+
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <div class="form-group">
+        <label>Employee Name</label>
+        <input type="text" class="form-control" id="employeeName" formControlName="employeeName"
+          placeholder="Enter name">
+        <div
+          *ngIf="employeeForm.controls['employeeName'].touched && employeeForm.controls['employeeName'].errors?.required">
+          <small class="form-text text-danger">Name is required.</small>
+        </div>
+        <div *ngIf="employeeForm.controls['employeeName'].errors?.minlength">
+          <small class="form-text text-danger">Atleast 6 characters are required.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Employee Address</label>
+        <input type="text" class="form-control" id="employeeAddress" formControlName="employeeAddress"
+          placeholder="Enter address">
+        <div
+          *ngIf="employeeForm.controls['employeeAddress'].touched && employeeForm.controls['employeeAddress'].errors?.required">
+          <small class="form-text text-danger">Address is required.</small>
+        </div>
+        <div *ngIf="employeeForm.controls['employeeAddress'].errors?.minlength">
+          <small class="form-text text-danger">Atleast 15 characters are required.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Employee Phone Number</label>
+        <input type="text" class="form-control" id="employeePhoneNumber" formControlName="employeePhoneNumber"
+          placeholder="Enter phone number">
+        <div
+          *ngIf="employeeForm.controls['employeePhoneNumber'].touched && employeeForm.controls['employeePhoneNumber'].errors?.required">
+          <small class="form-text text-danger">Employee address is required.</small>
+        </div>
+        <div *ngIf="employeeForm.controls['employeePhoneNumber'].errors?.pattern">
+          <small class="form-text text-danger">Indian mobile number is required.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Employee DOB</label>
+        <input type="date" class="form-control" id="employeeDob" formControlName="employeeDob" placeholder="Enter name">
+        <div
+          *ngIf="employeeForm.controls['employeeDob'].touched && employeeForm.controls['employeeDob'].errors?.required">
+          <small class="form-text text-danger">DOB is required.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Employee Email</label>
+        <input type="email" class="form-control" id="employeeEmail" formControlName="employeeEmail"
+          placeholder="Enter email">
+        <div
+          *ngIf="employeeForm.controls['employeeEmail'].touched && employeeForm.controls['employeeEmail'].errors?.required">
+          <small class="form-text text-danger">Email is required.</small>
+        </div>
+        <div *ngIf="employeeForm.controls['employeeEmail'].errors?.email">
+          <small class="form-text text-danger">Email is invalid.</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="!employeeForm.valid" class="btn btn-primary">Submit</button>
+    </form>
+
+  </div>
+</div>

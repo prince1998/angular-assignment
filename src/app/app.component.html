@@ -1,0 +1,17 @@
+
+<app-navbar></app-navbar>
+
+<div id=bt>
+    <button (click)=toggle_API_Display() id='b1'>Fetch API Table</button>
+    <button (click)=toggle_FORM_Display() id='b2'>Employee Form</button>
+
+</div>
+
+<div [hidden]= "isShow1">
+    <app-table></app-table>
+</div>
+
+
+<div [hidden]= "isShow2">
+    <app-form></app-form>
+</div>
